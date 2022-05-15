@@ -1,0 +1,7 @@
+<form name="myForm">
+
+    <input name="myInput" ng-model="myInput" ng-minlength="5">
+    
+    <h1 ng-if="!myForm.myInput.$valid">The value is too short</h1>
+    
+    </form>

@@ -1,0 +1,22 @@
+<div id="content-list" class="container lg-12">
+    <div class="card-body col-lg-4 offset-4 row d-flex justify-content-center">
+        <h4 class="text-center">Excluir Aluno</h4>
+        <table class="table col-lg-8 table-striped table-dark">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Nome</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{professor.pessoa?.id}}</td>
+                    <td>{{professor.pessoa?.nome}}</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <button (click)="deleteProfessor()" class="btn-danger">Excluir</button>
+        <button (click)="cancel()" class="btn-dark">Cancelar</button>
+    </div>
+</div>

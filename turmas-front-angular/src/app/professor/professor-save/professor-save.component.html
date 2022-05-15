@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="card-body bg-dark text-white">
+      <div class="container">
+        <form class="row col-10">
+          <div class="form-group col-md-12">
+            <label for="inputNome" class="form-label">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputnome"
+              [(ngModel)]="formProfessor.pessoa.nome"
+              name="nome"
+              placeholder="Digite o nome"
+            />
+          </div>
+  
+          <div class="form-group col-8">
+            <label for="inputAddress" class="form-label">Endereço</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputAddress"
+              placeholder="Digite o endereço"
+              [(ngModel)]="formProfessor.pessoa.endereco"
+              name="endereco"
+            />
+          </div>
+  
+          <div class="form-group col-md-4">
+            <label for="" class="form-label">Idade</label>
+            <input
+              name="idade"
+              [(ngModel)]="formProfessor.pessoa.idade"
+              class="form-control"
+              type="number"
+              placeholder="Digite a idade"
+            />
+          </div>
+  
+          <div class="form-group col-md-4">
+            <label for="sexo" class="form-label">Sexo</label>
+            <select
+              required
+              (change)="atribuiSexo($event)"
+              name="sexo"
+              id="sexo"
+              class="form-control"
+            >
+              <option selected>Selecione...</option>
+              <option *ngFor="let sexo of sexoOpcao" value="{{ sexo }}">
+                {{ sexo }}
+              </option>
+            </select>
+          </div>
+  
+          <div class="form-group col-md-8">
+            <label for="turma" class="form-label">Turma</label>
+            <select
+              required
+              (change)="atribuiTurma($event)"
+              name="turma"
+              id="turma"
+              class="form-control"
+            >
+              <option selected>Selecione...</option>
+              <option *ngFor="let turma of turmas" value="{{ turma.id }}">
+                {{ turma.nome }}
+              </option>
+            </select>
+          </div>
+  
+          <br /><br /><br /><br />
+  
+          <div class="form-group col-12">
+            <button (click)="createProfessor()" type="submit" class="btn btn-light">
+              Salvar
+            </button>
+            &nbsp;
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="navigateToProfessores()"
+            >
+              Voltar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

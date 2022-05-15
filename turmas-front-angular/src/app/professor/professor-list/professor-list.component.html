@@ -1,0 +1,48 @@
+<div id="content-list" class="container lg-12">
+
+    <h3 class="text-center">Listagem de professores</h3>
+  
+    <button type="button" class="btn btn-lg btn-secondary" (click)="navigateToprofessorCreate()">
+      Criar Novo professor
+    </button>
+  
+    <table class="table col-lg-8 table-striped table-dark mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Sexo</th>
+          <th scope="col">Idade</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Nome Turma</th>
+          <th scope="col">Período Turma</th>
+          <th class="text-center" scope="col">Ações</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let professor of professors$ | async">
+          <td> {{ professor.id }} </td>
+          <td> {{ professor.pessoa?.nome }} </td>
+          <td> {{ professor.pessoa?.sexo }} </td>
+          <td> {{ professor.pessoa?.idade }} </td>
+          <td> {{ professor.pessoa?.endereco }} </td>
+          <td> {{ professor.turma?.nome }} </td>
+          <td> {{ professor.turma?.periodo }} </td>
+          <td class="text-center">
+            <a routerLink="/professor-update/{{ professor.id }}" class="update">
+              <button class="btn btn-secondary"> Atualizar </button>
+            </a>
+            <a routerLink="/professor-delete/{{ professor.id }}" class="delete">
+              <button class="btn btn-danger"> Excluir </button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+  
+      <button (click)="navigateToHome()" type="button" class="btn btn-lg btn-secondary mt-3">
+        Voltar
+      </button>
+  
+    </table>
+  </div>

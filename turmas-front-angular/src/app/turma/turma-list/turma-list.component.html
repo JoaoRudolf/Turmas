@@ -1,0 +1,82 @@
+<!-- <div class="card">
+    <div class="card-body">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="navigateToTurmaCreate()"
+      >
+        Nova Turma
+      </button>
+    </div>
+  </div>
+  
+  <table class="table">
+  
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Período</th>
+        <th scope="col">Máximo de Alunos</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Apagar</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let turma of turmas$ | async">
+        <td> {{ turma.id }} </td>
+        <td> {{ turma.nome }} </td>
+        <td> {{ turma.periodo }} </td>
+        <td> {{ turma.maxAlunos }} </td>
+        <td> / </td>
+        <td> X </td>
+  
+      </tr>
+    </tbody>
+  
+  </table> -->
+  
+
+  <div id="content-list" class="container lg-12">
+
+    <h3 class="text-center">Listagem de professors</h3>
+  
+    <button type="button" class="btn btn-lg btn-secondary" (click)="navigateToTurmaCreate()">
+      Criar Nova Turma
+    </button>
+  
+    <table class="table col-lg-8 table-striped table-dark mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Período</th>
+          <th scope="col">Máximo de Alunos</th>
+          <th class="text-center" scope="col">Ações</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let turma of turmas$ | async">
+          <td> {{ turma.id }} </td>
+          <td> {{ turma.nome }} </td>
+          <td> {{ turma.periodo }} </td>
+          <td> {{ turma.maxAlunos }} </td>
+          <td class="text-center">
+            <a routerLink="/turma-update/{{ turma.id }}" class="update">
+              <button class="btn btn-secondary"> Atualizar </button>
+            </a>
+            <a routerLink="/turma-delete/{{ turma.id }}" class="delete">
+              <button class="btn btn-danger"> Excluir </button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+  
+      <button (click)="navigateToHome()" type="button" class="btn btn-lg btn-secondary mt-3">
+        Voltar
+      </button>
+  
+    </table>
+  </div>

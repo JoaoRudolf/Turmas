@@ -1,0 +1,50 @@
+<div id="content-list" class="container lg-12">
+
+  <h3 class="text-center">Listagem de alunos</h3>
+
+  <button type="button" class="btn btn-lg btn-secondary" (click)="navigateToAlunoCreate()">
+    Criar Novo Aluno
+  </button>
+
+  <table class="table col-lg-8 table-striped table-dark mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Nome Turma</th>
+        <th scope="col">Período Turma</th>
+        <th class="text-center" scope="col">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let aluno of alunos$ | async">
+        <td> {{ aluno.id }} </td>
+        <td> {{ aluno.ano }} </td>
+        <td> {{ aluno.pessoa?.nome }} </td>
+        <td> {{ aluno.pessoa?.sexo }} </td>
+        <td> {{ aluno.pessoa?.idade }} </td>
+        <td> {{ aluno.pessoa?.endereco }} </td>
+        <td> {{ aluno.turma?.nome }} </td>
+        <td> {{ aluno.turma?.periodo }} </td>
+        <td class="text-center">
+          <a routerLink="/aluno-update/{{ aluno.id }}" class="update">
+            <button class="btn btn-secondary"> Atualizar </button>
+          </a>
+          <a routerLink="/aluno-delete/{{ aluno.id }}" class="delete">
+            <button class="btn btn-danger"> Excluir </button>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+
+    <button (click)="navigateToHome()" type="button" class="btn btn-lg btn-secondary mt-3">
+      Voltar
+    </button>
+
+  </table>
+</div>
