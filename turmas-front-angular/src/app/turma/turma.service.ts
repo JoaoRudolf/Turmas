@@ -9,8 +9,6 @@ import { TurmaModel } from './model';
 })
 export class TurmaService {
 
-
-
   turmasUrl: string
 
   constructor(private http: HttpClient) {
@@ -29,7 +27,6 @@ export class TurmaService {
     );
   }
 
-
   getAllTurmas() {
     return this.http.get<TurmaModel[]>(`${environment.urlTuma}/turma`);
   }
@@ -42,10 +39,24 @@ export class TurmaService {
     );
   }
 
+  update(turma: TurmaModel): Observable<TurmaModel> {
+    const url = `${environment.urlTuma}/turma/${turma.id}`;
+    return this.http.put<TurmaModel>(url, turma).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+      );
+  }
+
   delete(id: number): Observable<TurmaModel> {
     const url = `${environment.urlTuma}/turma/${id}`;
     return this.http.delete<TurmaModel>(url).pipe(
-      map((obj) => obj),
+      map((obj) => {
+        if(obj == true) {
+          return true;
+        } else {
+          return false;
+        }
+      }),
       catchError((e) => this.errorHandler(e))
     );
   }

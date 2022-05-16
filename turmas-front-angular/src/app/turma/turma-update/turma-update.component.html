@@ -1,1 +1,30 @@
-<p>turma-update works!</p>
+<div class="card">
+  <div class="card-body bg-dark text-white">
+
+
+    <form (ngSubmit)="onSubmit()" class="row col-8 offset-2">
+      <div class="col-md-12">
+        <label for="inputNome" class="form-label">Nome</label>
+        <input type="text" class="form-control" minlength="4" id="inputnome" name="nome" [(ngModel)]="turma.nome" />
+      </div>
+      <div class="col-8">
+        <label for="inputPeriodo" class="form-label">Período</label>
+        <input type="text" class="form-control" id="inputPeriodo" placeholder="Digite o período"
+          [(ngModel)]="turma.periodo" name="endereco" />
+      </div>
+      <div class="col-4">
+        <label for="inputIdade" class="form-label">Máximo de Alunos</label>
+        <input type="number" class="form-control" id="inputMaxAlunos" [(ngModel)]="turma.maxAlunos" name="idade" />
+      </div>
+
+
+      <div class="col-12 mt-3">
+        <button (click)="updateTurma()" type="submit" class="btn btn-primary">Salvar</button> &nbsp;
+        <button type="button" class="btn btn-secondary" (click)="navigateToTurmas()">
+          Voltar
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

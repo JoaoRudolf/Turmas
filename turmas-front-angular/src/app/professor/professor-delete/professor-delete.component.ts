@@ -28,13 +28,13 @@ export class ProfessorDeleteComponent implements OnInit {
   deleteProfessor(): void {
     if(this.professor.id != null) {
       this.professorService.delete(this.professor.id).subscribe(() => {
-        this.professorService.showMessage("Aluno excluido com sucesso!");
+        this.professorService.showMessage("Professor excluido com sucesso!");
         this.router.navigate(["/professores"]);
       });
     }
   }
 
   cancel(): void {
-    this.router.navigate(["/professors"]);
+    this.router.navigate(["/professores"]);
   }
 }

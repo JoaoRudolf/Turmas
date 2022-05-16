@@ -72,7 +72,6 @@ public class ProfessorController {
 		Professor updatedProfessor = professorRepository.save(professor);
 		pessoaRepository.save(pessoa);
 		return ResponseEntity.ok(updatedProfessor);
-		
 	}
 	
 	@DeleteMapping("/{id}")

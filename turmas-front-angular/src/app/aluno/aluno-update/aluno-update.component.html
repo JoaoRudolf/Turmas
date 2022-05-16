@@ -1,48 +1,54 @@
-<form (ngSubmit)="onSubmit()" class="row col-8 offset-2">
-  <div class="col-md-12">
-    <label for="inputNome" class="form-label">Nome</label>
-    <input type="text" class="form-control" minlength="4" id="inputnome" name="nome" [(ngModel)]="aluno.pessoa.nome "/>
-  </div>
-  <div class="col-8">
-    <label for="inputAddress" class="form-label">Endereço</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Digite o endereço"
-      [(ngModel)]="aluno.pessoa.endereco" name="endereco" />
-  </div>
-  <div class="col-4">
-    <label for="inputIdade" class="form-label">Idade</label>
-    <input type="number" class="form-control" id="inputIdade" [(ngModel)]="aluno.pessoa.idade" name="idade" />
-  </div>
-  <div class="col-md-4">
-    <label for="inputAno" class="form-label">Ano</label>
-    <input type="number" class="form-control" id="inputnome" [(ngModel)]="aluno.ano" name="ano" />
-  </div>
+<div class="card">
+  <div class="card-body bg-dark text-white">
 
-  <div class="col-md-4">
-    <label for="input-sexo" class="form-label">Sexo</label>
-      <select required name="sexo" id="sexo" class="form-control" [(ngModel)]="aluno.pessoa.sexo">
-        <option disabled value="">Selecione...</option>
-        <option *ngFor="let sexo of sexoOpcao" value="{{ sexo }}">
-          {{ sexo }}
-        </option>
-      </select>
-    
-  </div>
+    <form (ngSubmit)="onSubmit()" class="row col-8 offset-2">
+      <div class="col-md-12">
+        <label for="inputNome" class="form-label">Nome</label>
+        <input type="text" class="form-control" minlength="4" id="inputnome" name="nome"
+          [(ngModel)]="aluno.pessoa.nome " />
+      </div>
+      <div class="col-8">
+        <label for="inputAddress" class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Digite o endereço"
+          [(ngModel)]="aluno.pessoa.endereco" name="endereco" />
+      </div>
+      <div class="col-4">
+        <label for="inputIdade" class="form-label">Idade</label>
+        <input type="number" class="form-control" id="inputIdade" [(ngModel)]="aluno.pessoa.idade" name="idade" />
+      </div>
+      <div class="col-md-4">
+        <label for="inputAno" class="form-label">Ano</label>
+        <input type="number" class="form-control" id="inputnome" [(ngModel)]="aluno.ano" name="ano" />
+      </div>
 
-  <div class="col-md-4">
-    <label for="inputTurma" class="form-label">Turma</label>
-    <select required name="turmas" id="turmas" class="form-control" [(ngModel)]="aluno.turma.id">
-      <option disabled value="">Selecione...</option>
-      <option *ngFor="let turma of turmas | async" value="{{ turma.id }}">
-        {{ turma.nome }}
-      </option>
-    </select>
-  </div>
+      <div class="col-md-4">
+        <label for="input-sexo" class="form-label">Sexo</label>
+        <select required name="sexo" id="sexo" class="form-control" [(ngModel)]="aluno.pessoa.sexo">
+          <option disabled value="">Selecione...</option>
+          <option *ngFor="let sexo of sexoOpcao" value="{{ sexo }}">
+            {{ sexo }}
+          </option>
+        </select>
 
-  <div class="col-12">
-    <button (click)="updateAluno()" type="submit" class="btn btn-primary">Salvar</button> &nbsp;
-    <button type="button" class="btn btn-secondary" (click)="navigateToAlunos()">
-      Voltar
-    </button>
-  </div>
-</form>
+      </div>
 
+      <div class="col-md-4">
+        <label for="inputTurma" class="form-label">Turma</label>
+        <select required name="turmas" id="turmas" class="form-control" [(ngModel)]="aluno.turma.id">
+          <option disabled value="">Selecione...</option>
+          <option *ngFor="let turma of turmas | async" value="{{ turma.id }}">
+            {{ turma.nome }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-12 mt-3">
+        <button (click)="updateAluno()" type="submit" class="btn btn-primary">Salvar</button> &nbsp;
+        <button type="button" class="btn btn-secondary" (click)="navigateToAlunos()">
+          Voltar
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

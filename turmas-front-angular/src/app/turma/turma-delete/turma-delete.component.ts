@@ -12,6 +12,7 @@ export class TurmaDeleteComponent implements OnInit {
 
   turma!: TurmaModel;
   turmaId!: number;
+  turmaNome!: string;
 
   constructor(
     private turmaService: TurmaService,
@@ -24,8 +25,9 @@ export class TurmaDeleteComponent implements OnInit {
       this.turmaService.getById(id).subscribe((turma) => {
         this.turma = turma;
 
-        if(this.turma.id) {
-          this.turmaId = +this.turma.id
+        if(this.turma.id && this.turma.nome) {
+          this.turmaId = +this.turma.id;
+          this.turmaNome = this.turma.nome;
         }
     });
   }
@@ -33,9 +35,14 @@ export class TurmaDeleteComponent implements OnInit {
 
   delete(): void {
     if(this.turma.id != null) {
-      this.turmaService.delete(+this.turma.id).subscribe(() => {
-        this.turmaService.showMessage("Truma excluida com sucesso!");
-        this.router.navigate(["/turmas"]);
+      this.turmaService.delete(+this.turma.id).subscribe((resp) => {
+        if (resp == true) {
+          this.turmaService.showMessage("Truma excluida com sucesso!");
+          this.router.navigate(["/turmas"]);
+        } else {
+          this.turmaService.showMessage("Truma não pôde ser excluída pois existe pessoa alocada nela.");
+          this.router.navigate(["/turmas"]);
+        }
       });
     }
   }

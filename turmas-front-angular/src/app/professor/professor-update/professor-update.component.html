@@ -1,48 +1,48 @@
-<form (ngSubmit)="onSubmit()" class="row col-8 offset-2">
-    <div class="col-md-12">
-      <label for="inputNome" class="form-label">Nome</label>
-      <input type="text" class="form-control" minlength="4" id="inputnome" name="nome" [(ngModel)]="professor.pessoa.nome "/>
-    </div>
-    <div class="col-8">
-      <label for="inputAddress" class="form-label">Endereço</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Digite o endereço"
-        [(ngModel)]="professor.pessoa.endereco" name="endereco" />
-    </div>
-    <div class="col-4">
-      <label for="inputIdade" class="form-label">Idade</label>
-      <input type="number" class="form-control" id="inputIdade" [(ngModel)]="professor.pessoa.idade" name="idade" />
-    </div>
-    <!-- <div class="col-md-4">
-      <label for="inputAno" class="form-label">Ano</label>
-      <input type="number" class="form-control" id="inputnome" [(ngModel)]="professor.ano" name="ano" />
-    </div> -->
-  
-    <div class="col-md-4">
-      <label for="input-sexo" class="form-label">Sexo</label>
-        <select required name="sexo" id="sexo" class="form-control" [(ngModel)]="professor.pessoa.sexo">
-          <option disabled value="">Selecione...</option>
-          <option *ngFor="let sexo of sexoOpcao" value="{{ sexo }}">
-            {{ sexo }}
-          </option>
-        </select>
+<div class="card">
+  <div class="card-body bg-dark text-white">
+
+    <form (ngSubmit)="onSubmit()" class="row col-8 offset-2">
+        <div class="col-md-12">
+          <label for="inputNome" class="form-label">Nome</label>
+          <input type="text" class="form-control" minlength="4" id="inputnome" name="nome" [(ngModel)]="professor.pessoa.nome "/>
+        </div>
+        <div class="col-8">
+          <label for="inputAddress" class="form-label">Endereço</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Digite o endereço"
+            [(ngModel)]="professor.pessoa.endereco" name="endereco" />
+        </div>
+        <div class="col-4">
+          <label for="inputIdade" class="form-label">Idade</label>
+          <input type="number" class="form-control" id="inputIdade" [(ngModel)]="professor.pessoa.idade" name="idade" />
+        </div>
       
-    </div>
-  
-    <div class="col-md-4">
-      <label for="inputTurma" class="form-label">Turma</label>
-      <select required name="turmas" id="turmas" class="form-control" [(ngModel)]="professor.turma.id">
-        <option disabled value="">Selecione...</option>
-        <option *ngFor="let turma of turmas | async" value="{{ turma.id }}">
-          {{ turma.nome }}
-        </option>
-      </select>
-    </div>
-  
-    <div class="col-12">
-      <button (click)="updateProfessor()" type="submit" class="btn btn-primary">Salvar</button> &nbsp;
-      <button type="button" class="btn btn-secondary" (click)="navigateToProfessores()">
-        Voltar
-      </button>
-    </div>
-  </form>
-  
+        <div class="col-md-4">
+          <label for="input-sexo" class="form-label">Sexo</label>
+            <select required name="sexo" id="sexo" class="form-control" [(ngModel)]="professor.pessoa.sexo">
+              <option disabled value="">Selecione...</option>
+              <option *ngFor="let sexo of sexoOpcao" value="{{ sexo }}">
+                {{ sexo }}
+              </option>
+            </select>
+        </div>
+      
+        <div class="col-md-4">
+          <label for="inputTurma" class="form-label">Turma</label>
+          <select required name="turmas" id="turmas" class="form-control" [(ngModel)]="professor.turma.id">
+            <option disabled value="">Selecione...</option>
+            <option *ngFor="let turma of turmas | async" value="{{ turma.id }}">
+              {{ turma.nome }}
+            </option>
+          </select>
+        </div>
+      
+        <div class="col-12 mt-3">
+          <button (click)="updateProfessor()" type="submit" class="btn btn-primary">Salvar</button> &nbsp;
+          <button type="button" class="btn btn-secondary" (click)="navigateToProfessores()">
+            Voltar
+          </button>
+        </div>
+      </form>
+      
+  </div>
+</div>  
